@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../service/auth_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,11 +9,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  AuthService authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("login screen"),
+        child: ElevatedButton(
+          child: Text("Logout"),
+          onPressed: () {
+            authService.signOut();
+          },
+        ),
       ),
     );
   }
